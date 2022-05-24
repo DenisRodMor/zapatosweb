@@ -1,0 +1,37 @@
+﻿@model entidades.Tallas
+
+@{
+    ViewBag.Title = "modificatallas";
+}
+
+<h2>Modificar Tallas</h2>
+
+
+@using (Html.BeginForm("acciones", "tallas", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    @Html.ValidationMessageFor(model => model.DscTalla, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IdTalla)
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" id="btnmodificar" name="submitButton"
+                    value="Modificar" class="btn btn-primary" title="Actualizar"
+                    data-toggle="tooltip" data-container="body" data-placement="right">
+                Actualizar
+            </button>
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Regresar", "listartallas")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

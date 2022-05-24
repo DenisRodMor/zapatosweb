@@ -1,0 +1,39 @@
+﻿@model IEnumerable<entidades.PA_TipoZapato_MostrarDetalle_Result>
+
+@{
+    ViewBag.Title = "listartipozapato";
+}
+
+<h2>Lista Tipo Zapato</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "agregatipozapato")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTipoZapato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DscTipoZapato)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdTipoZapato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DscTipoZapato)
+        </td>
+        <td>
+            @Html.ActionLink("Modificar", "modificatipozapato", new { id=item.IdTipoZapato }) |
+            @Html.ActionLink("Detalles", "detalletipozapato", new { id = item.IdTipoZapato }) |
+            @Html.ActionLink("Eliminar", "eliminatipozapato", new { id = item.IdTipoZapato })
+        </td>
+    </tr>
+}
+
+</table>

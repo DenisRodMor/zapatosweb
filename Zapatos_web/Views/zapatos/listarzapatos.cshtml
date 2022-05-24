@@ -1,0 +1,81 @@
+﻿@model IEnumerable<entidades.PA_Zapato_MostrarDetalles_Result>
+
+@{
+    ViewBag.Title = "listarzapatos";
+}
+
+<h2>Lista Zapatos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "agregazapato")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idZapato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DscZapato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantExistencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DscTalla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DscTipoZapato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idTipoZapato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTalla)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idZapato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DscZapato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantExistencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DscTalla)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DscTipoZapato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idTipoZapato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdTalla)
+        </td>
+        <td>
+            @Html.ActionLink("Modificar", "modificazapato", new {  id=item.idZapato }) |
+            @Html.ActionLink("Detalles", "detallezapato", new { id = item.idZapato }) |
+            @Html.ActionLink("Eliminar", "eliminazapato", new { id = item.idZapato })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<entidades.PA_Pedidoencabezado_MostrarDetalle_Result>
+
+@{
+    ViewBag.Title = "listarpedidoencabezado";
+}
+
+<h2>Lista Pedido Encabezado</h2>
+
+<p>
+    @Html.ActionLink("Nuevo ", "agregapedidoencabezado")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPedido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdZapato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DscZapato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdPedido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdZapato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DscZapato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            @Html.ActionLink("Modificar", "actualizapedidoencabezado", new { id = item.IdPedido }) |
+            @Html.ActionLink("Detalle", "detallepedidoencabezado", new { id = item.IdPedido }) |
+            @Html.ActionLink("Eliminar", "eliminapedidoencabezado", new { id = item.IdPedido })
+        </td>
+    </tr>
+}
+
+</table>

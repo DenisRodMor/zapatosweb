@@ -1,0 +1,76 @@
+﻿@model entidades.Clientes
+
+@{
+    ViewBag.Title = "eliminaclientes";
+}
+
+<h2>Eliminar Elientes</h2>
+
+<h3>Esta seguro(a) de que desea eliminarlo?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ap1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ap1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ap2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ap2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("acciones", "clientes", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(model => model.IdCliente)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" id="btnEliminar" name="submitbutton"
+                        value="Eliminar" class="btn btn-primary" title="Eliminar"
+                        data-toggle="tooltip" data-container="body" data-placement="right">
+                    Eliminar
+                </button>
+                @Html.ActionLink("Regresar", "listarclientes")
+            </div>
+        </div>
+
+        
+    }
+</div>

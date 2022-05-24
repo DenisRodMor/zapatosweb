@@ -1,0 +1,42 @@
+﻿@model entidades.PedidoDet
+
+@{
+    ViewBag.Title = "detallepedidodetalle";
+}
+
+<h2>Detalle Pedido</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdZapato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdZapato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modificar", "actualizapedidodetalle", new { id = Model.IdPedido }) |
+    @Html.ActionLink("Regresar", "listarpedidodetalle")
+</p>

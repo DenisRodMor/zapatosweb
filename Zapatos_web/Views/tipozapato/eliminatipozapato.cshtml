@@ -1,0 +1,51 @@
+﻿@model entidades.TipoZapato
+
+@{
+    ViewBag.Title = "eliminatipozapato";
+}
+
+<h2>Eliminar Tipo Zapato</h2>
+
+<h3>Esta seguro(a) de que desea eliminarlo?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTipoZapato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTipoZapato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DscTipoZapato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DscTipoZapato)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("acciones", "tipozapato", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(model => model.IdTipoZapato)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" id="btnEliminar" name="submitButton"
+                        value="Eliminar" class="btn btn-primary" title="Eliminar"
+                        data-toggle="tooltip" data-container="body" data-placement="right">
+                    Eliminar
+                </button>
+                @Html.ActionLink("Regresar", "listartipozapato")
+            </div>
+        </div>
+
+        
+    }
+</div>

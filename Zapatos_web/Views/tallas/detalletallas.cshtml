@@ -1,0 +1,34 @@
+﻿@model entidades.Tallas
+
+@{
+    ViewBag.Title = "detalletallas";
+}
+
+<h2>Detalle Tallas</h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTalla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTalla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DscTalla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DscTalla)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modificar", "modificatallas", new {id = Model.IdTalla }) |
+    @Html.ActionLink("Regresar", "listartallas")
+</p>

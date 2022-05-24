@@ -1,0 +1,46 @@
+﻿@model entidades.TipoZapato
+
+@{
+    ViewBag.Title = "modificatipozapato";
+}
+
+<h2>Modifica Tipo Zapato</h2>
+
+
+@using (Html.BeginForm("acciones", "tipozapato", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IdTipoZapato)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DscTipoZapato, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DscTipoZapato, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DscTipoZapato, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" id="btnmodificar" name="submitButton"
+                    value="Modificar" class="btn btn-primary" title="Actualizar"
+                    data-toggle="tooltip" data-container="body" data-placement="right">
+                Actualizar
+            </button>
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Regresar", "listartipozapato")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

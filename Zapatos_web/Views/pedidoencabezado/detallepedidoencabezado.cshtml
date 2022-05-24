@@ -1,0 +1,42 @@
+﻿@model entidades.PedidoEnCab
+
+@{
+    ViewBag.Title = "detallepedidoencabezado";
+}
+
+<h2>Detalle Pedido Encabezado</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FecPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FecPedido)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modificar", "actualizapedidoencabezado", new { id = Model.IdPedido }) |
+    @Html.ActionLink("Regresar", "listarpedidoencabezado")
+</p>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<entidades.PA_Pedidodetalle_MostrarDetalle_Result>
+
+@{
+    ViewBag.Title = "listarpedidodetalle";
+}
+
+<h2>Lista Pedido Detalle</h2>
+
+<p>
+    @Html.ActionLink("Nuevo ", "agregapedidodetalle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPedido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FecPedido)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdPedido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FecPedido)
+        </td>
+        <td>
+            @Html.ActionLink("Modificar", "actualizapedidodetalle", new { id = item.IdPedido }) |
+            @Html.ActionLink("Detalle", "detallepedidodetalle", new { id = item.IdPedido }) |
+            @Html.ActionLink("Eliminar", "eliminapedidodetalle", new { id = item.IdPedido })
+        </td>
+    </tr>
+}
+
+</table>
